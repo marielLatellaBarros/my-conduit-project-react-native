@@ -1,23 +1,28 @@
 import React from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, Image, ImageStyle } from 'react-native';
 
-const styles = StyleSheet.create({
-    logo : {
-        width : 50,
-        height : 50, 
-        borderTopLeftRadius: 50,
-        borderTopRightRadius: 50,
-        borderBottomLeftRadius: 50,
-        borderBottomRightRadius: 50,
-    }
-})
+// Define the properties the object of type CircledImage should have
+interface CircledImage {
+    size: number;
+    style?: ImageStyle;
+    uri?: string;
+}
 
-export const CircledImage = () => {
+export const CircledImage =  ( image :CircledImage) => { // : JSX.Element this const returns a jsx element'
+const style = {
+    width : image.size,
+    height : image.size,
+    //borderRadius : image.size / 2 // ??? doesn't recognize borderRadius
+    borderTopLeftRadius: image.size / 2,
+    borderTopRightRadius: image.size / 2,
+    borderBottomLeftRadius: image.size / 2,
+    borderBottomRightRadius: image.size / 2,
+}
+
     return (
-        <View>
             <Image 
-            source = {{uri : 'https://static.productionready.io/images/smiley-cyrus.jpg'}}
-            style = {styles.logo}/>
-        </View>
+            source = {{ uri : image.uri || 'https://static.productionready.io/images/smiley-cyrus.jpg'}}
+             //style = {style, image.style}/> // ? left side of the comma is not used???
+            style = {style}/>
     )
 }
