@@ -1,0 +1,12 @@
+{
+  "name": "react-native-conduit",
+  "displayName": "react-native-conduit",
+  "expo": {
+    "name": "react-native-conduit",
+    "slug": "react-native-conduit",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
