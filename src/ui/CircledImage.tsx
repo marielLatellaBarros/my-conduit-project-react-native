@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Image, ImageStyle } from 'react-native';
+import { Image, ImageStyle } from 'react-native';
 
 // Define the properties the object of type CircledImage should have
 interface CircledImage {
