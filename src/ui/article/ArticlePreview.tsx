@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { CircledImage } from "../CircledImage";
+import { AuthorMeta } from "../author/AuthorMeta";
 
 //Define properties by looking at assets/articles.js
 type Article = {
@@ -22,13 +22,6 @@ type Author = {
   image?: string; //optional
   following: boolean;
 };
-
-// TODO: Split up into reusable and/or logical components.
-// TODO: Under src/ui/author create AuthorMeta.tsx, this component contains the image, username of the author as well as the creation time of the article
-// TODO: Under src/ui/article create ArticlePreviewBody.tsx, this component contains the title, description, call to action (Read more...) and tags
-// TODO: As always create the correct type/interfaces for each reusable component
-// TODO: Rebuild ArticlePreview using your refactored components
-// TODO: Use stylesheets to remove all in-line styling from the components, you can leave the stylesheets in the same file as the component or create an external style (e.g. AuthorMeta.styles.ts)
 
 //export the function Pascalcase and give props
 export const ArticlePreview = (props: Article) => {
@@ -54,24 +47,8 @@ export const ArticlePreview = (props: Article) => {
           alignContent: "center",
         }}
       >
-        {/* Define like button and a little component (a row with two columns: first column: image, second column: username and createdAt)  */}
-        <View
-          style={{
-            width: "auto",
-            flexDirection: "row",
-            justifyContent: "center",
-          }}
-        >
-          {/* Image */}
-          <CircledImage size={36} uri={props.author.image} />
-
-          {/* Column with two items for username and timestamp */}
-          {/* username and timestamp */}
-          <View>
-            <Text>{props.author.username}</Text>
-            <Text>{props.createdAt}</Text>
-          </View>
-        </View>
+        {/* Define image, username and createdAt) in its own component, with its own style => AuthorMeta  */}
+        <AuthorMeta {...props} {...props.author}></AuthorMeta>
 
         {/* Likes */}
         <Text>{props.favoritesCount}</Text>
