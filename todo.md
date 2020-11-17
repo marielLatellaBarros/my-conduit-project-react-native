@@ -5,22 +5,23 @@ Add a TypeScript type or interface for your component props
 Use https://static.productionready.io/images/smiley-cyrus.jpg as fallback image in case non is provided
 optional: Barrel your exports in an index.ts file under the src/ui directory
 
-Exercise 1-2
+Exercise 1-2 - DONE
 under the src/ui/article directory, create a new file ArticlePreview.tsx
 create a new component ArticlePreview that accepts an article through props (check assets/articles.js for the type signature)
 create an interface or type that describes an article. (Tip: Build a separate interface/type for the author)
 Combine Flexbox, CircledImage and Text elements to build a reusable ArticlePreview component
 Focus on building the layout; Favourite-button, tags and text will be styled later
 
-Exercise 1-3
+Exercise 1-3 - DONE
 Split up into reusable and/or logical components.
-Under src/ui/author create AuthorMeta.tsx, this component contains the image, username of the author as well as the creation time of the article
+Under src/ui/author create AuthorMeta.tsx.
+This component contains the image, username of the author as well as the creation time of the article.
 Under src/ui/article create ArticlePreviewBody.tsx, this component contains the title, description, call to action (Read more...) and tags
 As always create the correct type/interfaces for each reusable component
 Rebuild ArticlePreview using your refactored components
 Use stylesheets to remove all in-line styling from the components, you can leave the stylesheets in the same file as the component or create an external style (e.g. AuthorMeta.styles.ts)
 
-Exercise 1-4
+Exercise 1-4 - DONE
 Use FlatList and your custom ArticlePreview item to render a list of articles (assets/articles.js)
 
 Exercise 1-5
@@ -45,4 +46,3 @@ Build a Touchable of your choice around ArticlePreviewBody and bind onPress to t
 
 Exercise 1-7
 Finish building the detail component and add styling throughout the application
-
