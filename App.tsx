@@ -1,8 +1,22 @@
 import React from 'react';
-import {CircledImage} from './src/ui/CircledImage'
+import { StyleSheet, View } from 'react-native';
+import { ArticlePreview } from './src/ui/article/ArticlePreview';
+import { ARTICLES } from './assets/articles';
 
 export default function App() {
+  const articles = ARTICLES;
   return (
-      <CircledImage size={100} uri={'https://avatars1.githubusercontent.com/u/5909722?v=4'}/>
+     <View style={styles.container}>
+            <ArticlePreview {...articles[0]} />
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'stretch',
+    justifyContent: 'center'
+  }
+});
