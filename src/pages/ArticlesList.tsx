@@ -31,11 +31,12 @@ export const ArticlesList: React.FunctionComponent & {navigationOptions?: Naviga
   const navigation = useNavigation();
 
   const navigateArticle = (slug: string) => navigation.navigate('Article', {slug: slug});
+
     const articles: Article[] = ARTICLES;
 const renderItem = ({ item }: { item: Article }): JSX.Element => {
   return (
     <View style={styles.articleContainer}>
-      <ArticlePreview {...item} />
+      <ArticlePreview {...item} navigateDetail = {navigateArticle} />
     </View>
   );
 };
