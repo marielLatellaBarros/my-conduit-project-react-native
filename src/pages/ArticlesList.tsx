@@ -36,7 +36,7 @@ export const ArticlesList: React.FunctionComponent & {navigationOptions?: Naviga
 const renderItem = ({ item }: { item: Article }): JSX.Element => {
   return (
     <View style={styles.articleContainer}>
-      <ArticlePreview {...item} navigateDetail = {navigateArticle} />
+      <ArticlePreview {...item} navigateArticle = {navigateArticle} />
     </View>
   );
 };
