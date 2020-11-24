@@ -60,7 +60,7 @@
 
 Finish building the detail component and add styling throughout the application
 
-## Exercise-2-1
+## Exercise-2-1 - DONE
 
 ### App.tsx
 

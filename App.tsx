@@ -1,38 +1,33 @@
 import React from 'react';
-import {StyleSheet, View } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from "react-navigation-stack";
+import { createStore } from 'redux';
 import { ArticleDetail } from './src/pages/ArticleDetail';
-import { ArticlesList } from './src/pages/ArticlesList';
+import ArticlesListPage from './src/pages/ArticlesList';
+import reducer from './src/reducks';
+import { Provider } from 'react-redux';
 
 export default function App() {
-  //Sort component, reason for capital letter
-  const Stack = createStackNavigator({
-    Home: {
-      screen: ArticlesList
+
+  const Stack = createStackNavigator({ //Sort component, reason for capital letter
+    Home: { 
+      screen: ArticlesListPage //Use the redux store 
     },
     Article: {
       screen: ArticleDetail
     }
   });
+  //Create a redux store by using redux's 'createStore' function and passing our reducer from src/reducks as arg
+  const store = createStore(reducer); //new store
+  const AppContainer = createAppContainer(Stack); //Add stack navigation to project
 
-  const AppContainer = createAppContainer(Stack);
-
-
+  //Replace the <View> wrapper with react'redux's <Provider> wrapper, passing the store as single prop to use the store
+  //This links the store to the application
   return (
-    <View style={styles.container}>
+    <Provider store={store}>
       <AppContainer />
-    </View>
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'stretch',
-    justifyContent: 'center'
-  }
-});
 
 
