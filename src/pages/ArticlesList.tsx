@@ -4,6 +4,7 @@ import { ArticlePreview } from '../../src/ui/article/ArticlePreview';
 import { ARTICLES } from '../../assets/articles';
 import { styles } from './ArticlesList.styles';
 import { NavigationStackOptions } from 'react-navigation-stack';
+import { useNavigation } from '../hooks/navigation';
 
 type Article = {
     title: string;
@@ -27,6 +28,9 @@ type Article = {
 
 //Customize navigation options via navigationOptions
 export const ArticlesList: React.FunctionComponent & {navigationOptions?: NavigationStackOptions} = (): JSX.Element => {
+  const navigation = useNavigation();
+
+  const navigateArticle = (slug: string) => navigation.navigate('Article', {slug: slug});
     const articles: Article[] = ARTICLES;
 const renderItem = ({ item }: { item: Article }): JSX.Element => {
   return (
