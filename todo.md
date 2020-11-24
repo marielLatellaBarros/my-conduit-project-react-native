@@ -24,12 +24,16 @@ Use stylesheets to remove all in-line styling from the components, you can leave
 Exercise 1-4 - DONE
 Use FlatList and your custom ArticlePreview item to render a list of articles (assets/articles.js)
 
-Exercise 1-5
-Under src/pages add ArticlesList.tsx and refactor your code by moving all ArticlesList logic to your new component
+Exercise 1-5 - DONE
+Under src/pages add ArticlesList.tsx and refactor your code by moving all ArticlesList logic to your new component.
+
 Install React Native's Navigation packages: npm i react-navigation react-navigation-stack
-use react-navigation's createStackNavigator function to build our navigation stack (1 route: Home)
-use react-navigation's createAppContainer function to create our new app container using the previously created Stack
+
+Use react-navigation's createStackNavigator function to build our navigation stack (1 route: Home)
+
+Use react-navigation's createAppContainer function to create our new app container using the previously created Stack
 Render AppContainer inside App's container View
+
 In ArticlesList.tsx, set your Navigation Bar's title to 'Conduit' using NavigationScreenOptions
 
 Exercise 1-6
