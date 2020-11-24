@@ -3,6 +3,7 @@ import { FlatList, View } from 'react-native';
 import { ArticlePreview } from '../../src/ui/article/ArticlePreview';
 import { ARTICLES } from '../../assets/articles';
 import { styles } from './ArticlesList.styles';
+import { NavigationStackOptions } from 'react-navigation-stack';
 
 type Article = {
     title: string;
@@ -24,8 +25,8 @@ type Article = {
     following: boolean;
   };
 
-
-export const ArticlesList: React.FunctionComponent = (): JSX.Element => {
+//Customize navigation options via navigationOptions
+export const ArticlesList: React.FunctionComponent & {navigationOptions?: NavigationStackOptions} = (): JSX.Element => {
     const articles: Article[] = ARTICLES;
 const renderItem = ({ item }: { item: Article }): JSX.Element => {
   return (
@@ -40,4 +41,14 @@ const RenderSeparator = () => <View style={styles.separator}></View>;
 return (
     <FlatList data={articles} renderItem={renderItem} ItemSeparatorComponent={RenderSeparator} keyExtractor={article => article.slug} />
   );
+};
+
+ArticlesList.navigationOptions = {
+  title: 'Conduit',
+  headerStyle: {
+    backgroundColor: '#5CB85C'
+  },
+  headerTitleStyle: {
+    color: '#FFF'
+  }
 };
