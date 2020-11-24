@@ -36,7 +36,7 @@ Render AppContainer inside App's container View
 
 In ArticlesList.tsx, set your Navigation Bar's title to 'Conduit' using NavigationScreenOptions
 
-Exercise 1-6
+Exercise 1-6 - DONE
 ArticlesList.tsx
 Use the useNavigation hook to add navigation to the ArticlesList component
 TODO: Write a function navigateArticle that navigates to the Article route, passing slug as a param {slug: slug}
