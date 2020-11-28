@@ -27,7 +27,8 @@ export default function App() {
   // Fill in your account credentials, username and email can both be your school email address = recommended, don't choose too difficult of a password
   useEffect(() => {
     //@ts-ignore
-    store.dispatch(loginUser({user: { username: 'swo', email: 'swo@asist.be', password: 'swoswoswo' }}));
+    // store.dispatch(loginUser({user: { username: 'swo', email: 'swo@asist.be', password: 'swoswoswo' }}));
+    store.dispatch(loginUser({user: { username: 'mar', email: 'Mariel.LatellaBarros@student.pxl.be', password: 'marmarmar' }}));
   }, []);
   
   //Replace the <View> wrapper with react'redux's <Provider> wrapper, passing the store as single prop to use the store
