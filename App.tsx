@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from "react-navigation-stack";
 import { createStore, applyMiddleware } from 'redux';
@@ -7,6 +7,7 @@ import ArticlesListPage from './src/pages/ArticlesList';
 import reducer from './src/reducks';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import { loginUser } from './src/reducks/user';
 
 export default function App() {
 
@@ -23,6 +24,12 @@ export default function App() {
   const store = createStore(reducer, applyMiddleware(thunk)); //new store
   const AppContainer = createAppContainer(Stack); //Add stack navigation to project
 
+  // Fill in your account credentials, username and email can both be your school email address = recommended, don't choose too difficult of a password
+  useEffect(() => {
+    //@ts-ignore
+    store.dispatch(loginUser({user: { username: 'swo', email: 'swo@asist.be', password: 'swoswoswo' }}));
+  }, []);
+  
   //Replace the <View> wrapper with react'redux's <Provider> wrapper, passing the store as single prop to use the store
   //This links the store to the application
   return (

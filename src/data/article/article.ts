@@ -12,3 +12,10 @@ export type Article = {
   favorited: boolean;
   favoritesCount: number;
 };
+
+export type ArticleForCreate = {
+  title: string;
+  description: string;
+  body: string;
+  tagList?: string[]
+}

@@ -3,8 +3,7 @@ import { FlatList, View, Text } from "react-native";
 import { ArticlePreview } from "../../src/ui";
 import { Article } from "../data";
 import { styles } from "./ArticlesList.styles";
-import { NavigationStackOptions } from "react-navigation-stack";
-import { useNavigation } from "../hooks";
+import { FunctionNavigationOptions, useNavigation } from "../hooks";
 import { connect } from "react-redux";
 import { getArticleList } from "../reducks/article";
 
@@ -18,9 +17,8 @@ type Props = {
 
 //Customize navigation options via navigationOptions
 //Props will be of type articles in the end
-const ArticlesList: React.FunctionComponent<Props> & {
-  navigationOptions?: NavigationStackOptions;
-} = (props): JSX.Element => {
+const ArticlesList: React.FunctionComponent<Props> & FunctionNavigationOptions = (props): JSX.Element => {
+
   const navigation = useNavigation();
   const navigateArticle = (slug: string) =>
     navigation.navigate("Article", { slug: slug });

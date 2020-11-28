@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { View, Text } from 'react-native';
 import { useNavigation } from '../hooks/navigation';
-import { ARTICLES } from '../../assets/articles.js';
 import { Article } from '../data/article/article';
 import { styles } from './ArticleDetail.styles';
 import { ArticleHeader } from '../ui/article/ArticleHeader';
