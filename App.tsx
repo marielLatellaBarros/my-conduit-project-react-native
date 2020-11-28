@@ -2,7 +2,7 @@ import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from "react-navigation-stack";
 import { createStore } from 'redux';
-import { ArticleDetail } from './src/pages/ArticleDetail';
+import ArticleDetailPage from './src/pages/ArticleDetail';
 import ArticlesListPage from './src/pages/ArticlesList';
 import reducer from './src/reducks';
 import { Provider } from 'react-redux';
@@ -14,7 +14,7 @@ export default function App() {
       screen: ArticlesListPage //Use the redux store 
     },
     Article: {
-      screen: ArticleDetail
+      screen: ArticleDetailPage
     }
   });
   //Create a redux store by using redux's 'createStore' function and passing our reducer from src/reducks as arg
