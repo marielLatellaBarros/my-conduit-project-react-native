@@ -9,10 +9,11 @@ import { NavigationStackOptions } from "react-navigation-stack";
 import { connect } from "react-redux";
 import { getArticle } from "../reducks/article";
 
-//1. Create new props for ArticleDetail (2 props: article, getArticle)
+//Add loading prop to Props type and mapStatetoProps
 type Props = {
   article: Article;
   getArticle: any;
+  isLoading: boolean;
 };
 
 // export const ArticleDetail = () => {
@@ -25,9 +26,10 @@ type Props = {
     useEffect(() => {
       props.getArticle(slug);
     }, [slug]);
+    // Use loading prop to show Loading message or Detail Component
     return (
       <View>
-        {!props.article ? (
+      {props.isLoading ? (
           <Text>Loading</Text>
         ) : (
           <>
@@ -61,7 +63,7 @@ ArticleDetail.navigationOptions = {
     }
   };
 
-  const mapStateToProps = (state) => ({ article: state.article.detail });
+  const mapStateToProps = state => ({ article: state.article.detail, isLoading: state.article.isLoadingDetail });
 const mapDispatchToProps = (dispatch) => ({
   getArticle: (slug: string) => dispatch(getArticle(slug)),
 });
